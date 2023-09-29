@@ -25,7 +25,7 @@ Este é um projeto de agenda de contatos que permite aos usuários cadastrar inf
 ## Instalação
 
 1. Clone o repositório para o seu ambiente local:
-   git clone https://github.com/vitorbrunorj/agenda-de-contatos.git](https://github.com/vitorbrunorj/agenda)
+   git clone (https://github.com/vitorbrunorj/agenda)
 
 2. Acesse o diretório do projeto:
    cd agenda-de-contatos
@@ -70,7 +70,7 @@ Este projeto está licenciado sob a Licença MIT - consulte o arquivo [LICENSE.m
 
 ---
 
-Desenvolvido por [Vitor Bruno](https://github.com/vitorbrunorj)
+Desenvolvido por [Vitor Bruno] (https://github.com/vitorbrunorj)
 
 
 
