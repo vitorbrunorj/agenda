@@ -1,14 +1,49 @@
-<%- include('includes/head'); %>
+<%- include('includes/head') %> <%- include('includes/nav') %>
 
-<section class="container">
-  <h1><%= csrfToken %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
 
-  <form action="/" method="post">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <label>Cliente</label>
-    <input type="text" name="cliente">
-    <button>Submit</button>
-  </form>
-</section>
+    <div class="col-lg-12 my-3">
+      <h1 class="text-center">Agenda</h1>
 
-<%- include('includes/footer'); %>
+      <% if (contatos.length > 0) { %>
+      <p class="text-center lead">Seus contatos estão abaixo</p>
+      <%- include('includes/messages') %>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Formatar</th>
+            <th scope="col">Apagar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let numero = 1; %> <% contatos.forEach(contato => { %>
+          <tr>
+            <th scope="row"><%= numero %></th>
+            <td><%= contato.nome %></td>
+            <td><%= contato.sobrenome %></td>
+            <td><%= contato.telefone %></td>
+            <td><%= contato.email %></td>
+            <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+            <td>
+              <a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a>
+            </td>
+          </tr>
+          <% numero++; %> <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p class="alert alert-danger text-center lead">Não existem contatos na sua agenda.</p>
+      <% } %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
